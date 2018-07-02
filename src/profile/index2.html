@@ -1,0 +1,144 @@
+<template>
+	<require from="./basic-use.css!css"></require>
+
+	<div id="example">
+		<div class="demo-section k-content">
+
+			<!--<h3>Editing ${customer.firstName} ${customer.lastName}</h3>-->
+			<div class="settings-head">
+
+
+				<h3>Editing ${customer.firstName} ${customer.lastName}</h3>
+
+
+			</div>
+			<form role="form" submit.delegate="signup()">
+				<ul>
+					<li> <label for="email">Email</label>
+						<input type="text" value.bind="customer.Email" placeholder="Email"></li>
+
+					<li> <label for="password">Password</label>
+						<input type="password" value.bind="customer.Password" placeholder="Password"></li>
+					<li> <label for="lastName">lastName</label>
+						<input type="text" style=" " value.bind="customer.lastName" placeholder="lastName"></li>
+					</li>
+					<!--<li> <label for="password">roles</label>
+						<input type="text" value.bind="customer.roles" placeholder="lastName"></li>
+
+					<label class="checkbox" repeat.for="role of customer.roles">
+          <input type="checkbox" value.bind="role" >${role}
+        </label>
+					</li>-->
+					<!--<li> <label for="password">insured towns</label>
+						<ak-multiselect k-value.two-way="required">
+							<select multiple="multiple" data-placeholder="Select towns...">
+              <option>Hackendsak</option>
+              <option>Paramus</option>
+              <option>Bcua</option>
+              <option>Bergen</option>
+              <option>Passaic</option>
+              <option>Sober</option>
+              <option>Clifton</option>
+            </select>
+						</ak-multiselect>
+					 k-value.two-way="required"
+					 </li>-->
+					<!--<li>
+						<ak-multiselect k-placeholder="Select towns..." k-data-text-field="town" k-data-value-field="tid" k-auto-bind.bind="true"
+							k-widget.two-way="multiselect" k-data-source.bind="data" k-value.bind="value">
+
+						</ak-multiselect>
+					</li>-->
+
+					<li>
+						<ak-multiselect k-placeholder="Select towns..." k-data-text-field="town" k-data-value-field="town" k-auto-bind.bind="true"
+							k-widget.two-way="multiselect" k-data-source.bind="data" k-value.bind="value">
+
+						</ak-multiselect>
+					</li>
+
+					<li>Notifications <input ak-switch type="checkbox" checked="true" /></li>
+					<li>
+						<button ak-button click.delegate="getValues()">Get values</button>
+					</li>
+					<!--<li>Send notifications <input ak-switch="k-on-label: YES; k-off-label: NO" /></li>
+					<li>Always visible <input ak-switch="k-checked.bind: true" /></li>
+					<li>Display real name <input ak-switch/></li>-->
+					<!--<li> <button style="color: blue;" type="submit">Save</button></li>-->
+					<li><button type="submit" width="300px" class=" btn btn-sm   btn-success ">Save </button></li>
+				</ul>
+			</form>
+			<div class="box">
+				<h4>Console log</h4>
+				<logger view-model.ref="logger"></logger>
+			</div>
+		</div>
+	</div>
+</template>
+
+<!-- btn-block
+<template>
+
+	<section class="au-animate section no-pad-bot">
+		<div class="container">
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<div class="panel-title">
+						<h3>Editing ${customer.firstName} ${customer.lastName}</h3>
+					</div>
+
+
+				</div>
+				<div class="panel-body">
+
+
+					<form method="post" name="loginForm" class="col s12" validate.bind="validation">
+
+						<div class="row">
+							<div class="form-group has-feedback">
+								<div class="row cols s12">
+									<div col s1>Password</div>
+									<div class="input-field col s8">
+										<i class="material-icons prefix">vpn_key </i>
+										<input id="icon_prefix" type="password" placeholder="Password" class="form-control" value.bind="customer.Password" />
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="input-field col s6">
+										<i class="material-icons prefix">email</i>
+										<input id="email" type="text" class="validate" value.bind="customer.Email" placeholder="Placeholder" required autofo>
+										<label for="email">Email</label>
+									</div>
+
+
+									<div class="row">
+										<div class="input-field col s8">
+											<i class="material-icons prefix">mode_edit</i>
+											<textarea class="materialize-textarea" id="textarea1" data-position="bottom" data-delay="50" value.bind="customer.Notes"
+												placeholder="Notes" required autofocus></textarea>
+
+										</div>
+									</div>
+
+									<div class="row">
+										<button type="submit" data-position="bottom" data-delay="50" data-tooltip="save user specifications" click.delegate="save(customer)"
+											class="tooltipped btn btn-lg btn-block btn-success">save user specs </button>
+									</div>
+
+								</div>
+					</form>
+
+					</div>
+
+
+
+					</div>
+				</div>
+
+
+
+			</div>
+	</section>
+</template>-->

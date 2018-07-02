@@ -1,0 +1,113 @@
+<template>
+    <require from="./BlobToUrlValueConverter"></require>
+    <require from="./FileListToArrayValueConverter"></require>
+
+    <div class="row">
+        <div class="col s1">1</div>
+        <div class="col s1">2</div>
+        <div class="col s1">3</div>
+        <div class="col s1">4</div>
+        <div class="col s1">5</div>
+        <div class="col s1">6</div>
+        <div class="col s1">7</div>
+        <div class="col s1">8</div>
+        <div class="col s1">9</div>
+        <div class="col s1">10</div>
+        <div class="col s1">11</div>
+        <div class="col s1">12</div>
+    </div>
+
+    <div class="row">
+        <div class="col s12">This div is 12-columns wide</div>
+        <div class="col s6">This div is 6-columns wide</div>
+        <div class="col s6">This div is 6-columns wide</div>
+    </div>
+    <div class="row">
+
+        <div class="col s6">1 This div is 6-columns wide</div>
+
+    </div>
+    <div class="row">
+
+        <div class="col s6">2 This div is 6-columns wide</div>
+
+    </div>
+    <div class="collection">
+        <a href="#!" class="collection-item"><span class="badge">1</span>Alan</a>
+        <a href="#!" class="collection-item"><span class="new badge">4</span>Alan</a>
+        <a href="#!" class="collection-item">Alan</a>
+        <a href="#!" class="collection-item"><span class="badge">14</span>Alan</a>
+    </div>
+
+
+    <div class="row">
+        <div class="input-field col s6">
+            <i class="material-icons prefix">search</i>
+            <input id="icon_prefix" type="text" value.bind="search" class="validate">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s6">
+            <div class="collection">
+                <div repeat.for="car of cars">
+                    <a href="#!" class="collection-item">${car.make} - ${car.model}</a>
+                </div>
+            </div>
+        </div>
+        <div class="col s6">
+            <table class="bordered hoverable table-responsive header grey lighten-1 ">
+
+                <thead>
+                    <tr>
+                        <th>make</th>
+                        <th>model</th>
+
+                    </tr>
+                </thead>
+                <!--//| sort:'make':'ascending'-->
+                <tbody class="cursor-pointer">
+                    <tr repeat.for="car of cars  ">
+                        <td>${car.make}</td>
+                        <td>${car.model}</td>
+
+
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+
+    <!--<form submit.delegate="doUpload()">
+        <input id="files" type="file" accept=".csv" files.bind="selectedFiles" class="form-control">
+        <input type="submit" class="btn btn-primary" value="Upload" if.bind="selectedFiles.length > 0" />
+    </form>-->
+    <!--<input type="file" accept=".csv" files.bind="selectedFiles">   -->
+    <div class="row">
+        <div class="col s4">
+            <form submit.delegate="doUpload()">
+            <input id="files" type="file" multiple accept="image/*" files.bind="selectedFiles">
+            <ul>
+                <li repeat.for="file of selectedFiles | fileListToArray">
+                    <p>${file.name}: ${file.type} ${file.size / 1000} kb</p>
+                    <img src.bind="file | blobToUrl"><img> Last Modified: ${file.lastModifiedDate}
+                </li>
+            </ul>
+             <input type="submit" class="btn btn-primary" value="Upload" if.bind="selectedFiles.length > 0" />
+        </div>
+    </div>
+
+    <!--<input type="file" multiple accept="image/*" files.bind="selectedFiles"> -->
+</template>
+
+<!--<div class="collection">
+<ui-list>
+<div repeat.for="car of cars" >
+<div class="collection-item">
+<span style="flex:1;">${car}</span>
+</div>
+</div>
+</ui-list>
+</div>

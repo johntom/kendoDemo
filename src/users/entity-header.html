@@ -1,0 +1,23 @@
+<template>
+  <div class="row">
+    <div class="col m8 no-padding">
+      <h3 class="left">Editing ${user.firstName} ${user.lastName} </h3>
+    </div>
+    <div class="col m4">
+      <button type="button" class="right waves-effect waves-light btn header-button"
+              disabled.one-way="!hasChanges"
+              show.bind="!entity.entityAspect.entityState.isAdded()"
+              click.delegate="revert()">
+        Revert
+      </button>
+      <button type="submit" class="right waves-effect waves-light btn header-button"
+              disabled.one-way="!hasChanges">
+        Save
+      </button>
+       <button type="submit" class="right waves-effect waves-light btn header-button"
+             click.delegate="save()">
+        Save2
+      </button>
+    </div>
+  </div>
+</template>

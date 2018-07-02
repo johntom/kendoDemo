@@ -1,0 +1,151 @@
+<template>
+  <!--<require from="./modal1.html"></require>-->
+  <style>
+    .flow-text {
+      font-weight: 400;
+      font-size: 0.8em;
+    }
+    
+    .flow-text-bold {
+      font-weight: bold;
+      font-size: 0.8em;
+    }
+    
+    .btn-default {
+      color: #333;
+      background-color: #fff;
+      border-color: #ccc;
+    }
+    
+    .btn-primary {
+      color: #fff;
+      background-color: #428bca;
+      border-color: #357ebd;
+    }
+    
+    .btn-primary:hover {
+      background-color: orange;
+    }
+    
+    .btn-success {
+      color: #fff;
+      background-color: #5cb85c;
+      border-color: #4cae4c;
+    }
+    
+    .btn-warning {
+      color: #fff;
+      background-color: #f0ad4e;
+      border-color: #eea236;
+    }
+    
+    .btn-info {
+      color: #fff;
+      background-color: #5bc0de;
+      border-color: #46b8da;
+    }
+    
+    .btn-danger {
+      color: #fff;
+      background-color: #d9534f;
+      border-color: #d43f3a;
+    }
+    
+    pre[class*="language-"] {
+      padding: 25px 12px 7px 12px;
+      border: solid 1px rgba(51, 51, 51, 0.12);
+    }
+    
+    h4 {
+      color: #212121;
+      /*375A7F;*/
+      font-size: 2.00rem;
+      line-height: 110%;
+      margin: 1.14rem 0 0.912rem 0;
+    }
+    
+    h5 {
+      color: #212121;
+      /*375A7F;*/
+      font-size: 1.30rem;
+      line-height: 110%;
+      margin: 1.14rem 0 0.912rem 0;
+    }
+    
+    h6 {
+      color: #212121;
+      /*375A7F;*/
+      font-size: .90rem;
+      line-height: 110%;
+      font-style: bold;
+    }
+    
+    .card.medium .card-content {
+      height: 350px;
+    }
+    
+    .card.large .card-content {
+      height: 400px;
+    }
+    
+    [type="checkbox"] + label {
+      /* overide mat... position: relative;*/
+      padding-left: 25px;
+    }
+    
+    p {
+      /*font-size: 1.00rem;*/
+      line-height: 17%;
+      /*20%;*/
+    }
+    
+    .btn,
+    .btn-large,
+    .btn-flat {
+      padding: 0 1rem;
+      /*mize= 2rem*/
+    }
+     .btn-BB {
+      color: #fff;
+      /*background-color: #375A7F;*/
+      background-color: #A7A9AC;
+      /*//dimgray;*/
+      border-color: #ccc;
+          width: 36px;
+    }
+  </style>
+  
+      
+  <!--<require from="bootstrap/css/bootstrap.css"></require>-->
+  <!--<require from="./styles.css"></require>-->
+  <!--<require from="./user-list"></require>-->
+  	<!--<button ak-button click.delegate="refresh()">refresh</button>-->
+ <require from="aurelia-kendoui-bridge/panelbar/panelbar"></require>
+
+  <div class="user-list">
+    	
+    <ak-panel-bar>
+      <li class="k-state-active">
+        <span class="k-link k-state-selected">My Users
+
+		<!--<button width="300px" class=" btn btn   btn-success " click.delegate="refresh()">refresh </button>-->
+
+   
+        </span>
+        <div repeat.for="user of users" class="list-group-item ${user.id === selectedId ? 'active' : ''}">
+          <!--<a route-href="route: users; params.bind: {id:user.id}" click.delegate="select(user)">-->
+          <a route-href="route: users; params.bind: {id:user.id}" click.delegate="select(user)">
+            <!--<img src.bind="user.image" alt="${contact.firstName} ${contact.lastName}">-->
+            <div class="details">
+              <h4 class="list-group-item-heading">${user.firstName} ${user.lastName}</h4>
+              <p class="list-group-item-text">${user.email}</p>
+            </div>
+          </a>
+        </div>
+      </li>       
+    </ak-panel-bar>
+  </div>
+	<button width="300px" class=" btn btn   btn-success " click.delegate="refresh()">refresh </button>
+
+
+</template>

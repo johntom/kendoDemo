@@ -1,0 +1,54 @@
+<template>
+	<require from="./basic-use.css!css"></require>
+	<div id="example">
+		<div class="demo-section k-content">
+			<!--<h3>Editing ${user.firstName} ${user.lastName}</h3>-->
+			<div class="settings-head">
+				<h3>Editing ${user.firstName} ${user.lastName}  </h3>
+			</div>
+			<form role="form" submit.delegate="save(user)">
+				  <!--<compose view="./entity-header.html"></compose>-->
+				<ul>
+					<li> <label for="email">Email</label>
+						<input type="text" value.bind="user.email" placeholder="Email"></li>
+
+					<li> <label for="password">Password</label>
+						<input type="password" value.bind="user.password" placeholder="Password"></li>
+					
+					<li> <label for="lastName">firstName</label>
+						<input type="text" style=" " value.bind="user.firstName" placeholder="firstName"></li>
+					</li>
+					<li> <label for="lastName">lastName</label>
+						<input type="text" style=" " value.bind="user.lastName" placeholder="lastName"></li>
+					</li>
+
+					<li>
+						<ak-multiselect k-placeholder="Select templates..." k-data-text-field="template" k-data-value-field="template" k-auto-bind.bind="true"
+							k-widget.two-way="multiselect2" k-data-source.bind="dataT" k-value.bind="valuetemp">
+
+						</ak-multiselect>
+					</li>
+
+					<li>
+						<ak-multiselect k-placeholder="Select towns..." k-data-text-field="town" k-data-value-field="town" k-auto-bind.bind="true"
+							k-widget.two-way="multiselect" k-data-source.bind="data" k-value.bind="value">
+
+						</ak-multiselect>
+					</li>
+					<li show.bind="user.Admin===true">Admin ${user.Admin} <input ak-switch type="checkbox" checked="true"  /></li>
+
+					<li>Notifications <input ak-switch type="checkbox" checked="true" /></li>
+					<!--<li>
+						<button ak-button click.delegate="getValues()">Get values</button>
+					</li>-->
+
+					<li><button type="submit" width="300px" class=" btn btn-sm   btn-success ">Save </button></li>
+				</ul>
+			</form>
+			<!--<div class="box">
+				<h4>Console log</h4>
+				<logger view-model.ref="logger"></logger>
+			</div>-->
+		</div>
+	</div>
+</template>

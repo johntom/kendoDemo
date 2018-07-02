@@ -1,0 +1,25 @@
+<template>
+  <require from="theme-selector/theme-selector"></require>
+  <!--${authgtz.user}-->
+  <ul ref="menu">
+
+    <li>
+      <a route-href="route: ">Aurelai/Kendo Jspm Demo</a>
+    </li>
+
+    <li>
+      <a route-href="route: samples">samples</a>
+    </li>
+
+    <li click.delegate="showThemeDialog()">
+      <a href="#">Theme</a>
+    </li>
+    <li>
+      <a route-href="route: help">Help</a>
+    </li>
+
+
+  </ul>
+
+  <theme-selector ref="themeSelector"></theme-selector>
+</template>

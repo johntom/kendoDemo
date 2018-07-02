@@ -1,0 +1,171 @@
+<template>
+
+	<style>
+		html {
+			font-size: 14px;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+		
+		k-grid td {
+			text-overflow: ellipsis;
+			-ms-text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
+    		padding: 0.1em 0.1em;
+			 max-width: 250px;
+		}
+		
+		.k-grid .ra,
+		.k-grid tbody tr {
+			height: 36px;
+		}
+		
+		.k-numerictextbox .k-input {
+			text-align: right;
+		}
+		
+		#cap {
+			width: 242px;
+			height: 225px;
+			margin: 20px auto;
+			background-image: url('http://demos.telerik.com/kendo-ui/content/web/dropdownlist/cap.png');
+			background-repeat: no-repeat;
+			background-color: transparent;
+		}
+		
+		.black-cap {
+			background-position: 0 0;
+		}
+		
+		.grey-cap {
+			background-position: 0 -225px;
+		}
+		
+		.orange-cap {
+			background-position: 0 -450px;
+		}
+		
+		#town {
+			float: left;
+			width: 60px;
+			height: 20px;
+			margin: 20px;
+			border: 1px solid rgba(0, 0, 0, .2);
+		}
+		
+		.town-blue {
+			background: #13b4ff;
+		}
+		
+		.town-purple {
+			background: #ab3fdd;
+		}
+		
+		.town-wine {
+			background: #ae163e;
+		}
+		
+		.town-1 {
+			background: #cecece;
+		}
+		
+		.town-2 {
+			background: #ab3fdd;
+		}
+		
+		.town-3 {
+			background: #f9f900;
+		}
+		
+		.town-4 {
+			background: #25bc87;
+		}
+		
+		.town-5 {
+			background: #2626e2;
+		}
+		
+		.town-6 {
+			background: #fc9255;
+		}
+		
+		.town-7 {
+			background: #db8dfc;
+		}
+		
+		.town-8 {
+			background: #a3fc55;
+		}
+		
+		.town-9 {
+			background: #55fcfc;
+		}
+		
+		.town-10 {
+			background: #55b9fc;
+		}
+		
+		.town-11 {
+			background: #f90000;
+		}
+	</style>
+
+	<require from="./about.css"></require>
+
+	<div class="container-fluid">
+
+		<br>
+		<ul>
+			<li class="k-state-active">BRM Mail Workflow</li>
+
+		</ul>
+		<div>
+			<section>
+				<br>
+				<h4>Mail Search to Excel</h4>
+				<div class='row'>
+					<div class="col-sm-12">
+						<div class="col-sm-1">
+							<span style="margin-top: 2em;"> insured :</span>
+							<ak-drop-down-list k-data-text-field="text" k-data-value-field="value" k-data-source.bind="dataI" k-value.two-way="capColor"
+								k-on-change.delegate="townChanged()" style="width: 100%;">
+							</ak-drop-down-list>
+
+						</div>
+
+						<div class="col-sm-1">
+							<span style="margin-top: 2em;"> template :</span>
+							<ak-drop-down-list k-data-text-field="text" k-data-value-field="value" k-data-source.bind="data" k-value.two-way="capColor"
+								k-on-change.delegate="townChanged()" style="width: 100%;">
+							</ak-drop-down-list>
+
+						</div>
+						<div class="col-sm-1">
+							<div ref="town" id="town" class="town-1"></div>
+						</div>
+						<div class="col-sm-4">
+
+							<button type="button" class="btn btn-default" ak-button k-on-click.delegate="search()">
+                  <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
+                </button>
+							<button type="button" id="textButton" ak-button k-on-click.delegate="saveGrid()">
+                  <span class="glyphicon glyphicon-save" aria-hidden="true">  Save Grid
+                </button>
+							<button type="button" id="textButton" ak-button k-on-click.delegate="loadGrid()">
+                  <span class="glyphicon glyphicon-open" aria-hidden="true">   Load Grid
+                </button>
+
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-12">
+						<div ref="grid"></div>
+					</div>
+				</div>
+
+
+			</section>
+		</div>
+	</div>
+</template>
